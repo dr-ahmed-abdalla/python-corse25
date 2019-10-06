@@ -1,0 +1,45 @@
+"""
+write program that ask the user to enter 3 numbers and if any value of inbuts is number from 1 to 9 the program can convert it
+to text for example 1 converted to one and concatenate the numbers . and if any value of inputs is number more than 9 or 0 or -ve number the program 
+not concatenate and exit , and if all inputs is text the programm concatenate
+"""
+
+import sys  # sys is just a library that we need it to exit the program in some cases
+
+numbers = ["one","two","three","four","five","six","seven","eight","nine"] # this is list that represent 1,2,.. in names
+
+x1 = input("enter the first value :")
+x2 = input("enter the second value:")
+x3 = input("enter the third value:")
+x1_state = x1.isnumeric()  # this give True if x1 is number and False if it is not
+x2_state = x2.isnumeric()
+x3_state = x3.isnumeric()
+
+if not (x1_state or x2_state or x3_state):
+    # if all three inputs is not numbers then (x1_state or x2_state or x3_state) will give false and
+    # here we use not (false) that give true and the if condition is correct
+    print(x1 + " " + x2 + " " + x3)
+else:
+    if x1_state:
+        if 1 <= int(x1) <= 9:
+            print("enter the value of ",int(x1),"in 1st value", "in characters in the second time but now i will concatenate for you")
+            x1 = numbers[int(x1) - 1]
+        else:
+            print("we can concatenate this number",int(x1))
+            sys.exit() # to exit the program if number is large than 9
+    if x2_state:
+        if 1 <= int(x2) <= 9:
+            print("enter the value of ",int(x2),"in 2nd value","in characters in the second time but now i will concatenate for you ")
+            x2 = numbers[int(x2) - 1]
+        else:
+            print("we can concatenate this number",int(x2))
+            sys.exit() # to exit the program if number is large than 9
+    if x3_state:
+        if 1 <= int(x3) <= 9:
+            print("enter the value of ",int(x3),"in 3rd value","in characters in the second time but now i will concatenate for you ")
+            x3 = numbers[int(x3) - 1]
+        else:
+            print("we can concatenate this number",int(x3))
+            sys.exit() # to exit the program if number is large than 9
+    print("the concatenation is", x1 + " " + x2 + " " + x3)
+    
